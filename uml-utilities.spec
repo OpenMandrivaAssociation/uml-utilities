@@ -13,7 +13,6 @@ Source1:	tun.rules
 Patch0:     uml-utilities-20060323-mismatch-dcl.patch 
 License:	GPL
 Group:		Emulators
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 Url:		http://user-mode-linux.sourceforge.net/
 BuildRequires:	libreadline-devel
 BuildRequires:	libncurses-devel
