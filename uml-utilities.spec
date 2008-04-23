@@ -1,6 +1,6 @@
 %define name uml-utilities 
-%define version 20060323
-%define release %mkrel 3
+%define version 20070815
+%define release %mkrel 1
 
 %define	Summary	Tools to run and configure usermodes linux
 
@@ -10,13 +10,14 @@ Release:	%{release}
 Summary:	%{Summary}
 Source0:	uml_utilities_%{version}.tar.bz2
 Source1:	tun.rules
-Patch0:     uml-utilities-20060323-mismatch-dcl.patch 
+Patch0:     uml-utilities-fix-install-usage.patch
 License:	GPL
 Group:		Emulators
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 Url:		http://user-mode-linux.sourceforge.net/
 BuildRequires:	libreadline-devel
 BuildRequires:	libncurses-devel
+BuildRequires:  fuse-devel
 Requires:	tunctl
 
 %description
@@ -38,7 +39,7 @@ may not change any aspects of the host side of the interface.
 
 %prep
 %setup -n tools-%{version} -q
-%patch0 -p0 -b .c-dcl
+%patch0 -p0
 
 %build
 %make
@@ -68,5 +69,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/tunctl
 %config(noreplace) %{_sysconfdir}/udev/rules.d/90-tun.rules
-
-
