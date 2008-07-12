@@ -10,6 +10,8 @@ Release:	%{release}
 Summary:	%{Summary}
 Source0:	uml_utilities_%{version}.tar.bz2
 Source1:	tun.rules
+Source2:    umlswitch.init
+Source3:    umlswitch.sysconfig
 Patch0:     uml-utilities-fix-install-usage.patch
 License:	GPL
 Group:		Emulators
@@ -49,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 install -D %{SOURCE1} %{buildroot}%{_sysconfdir}/udev/rules.d/90-tun.rules
 
+install -D -m 755 %{SOURCE2} %buildroot/%_initrddir/umlswitch
+install -D -m 644 %{SOURCE3} %buildroot/%{_sysconfdir}/sysconfig/umlswitch
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -64,6 +69,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_sbindir}/*
 %{_libdir}/uml
+%_initrddir/umlswitch
+%config %{_sysconfdir}/sysconfig/umlswitch
 
 %files -n tunctl
 %defattr(-,root,root)
