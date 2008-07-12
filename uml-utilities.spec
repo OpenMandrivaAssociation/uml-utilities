@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %exclude %{_bindir}/tunctl
-%attr(755,root,root) %{_bindir}/*
+%{_bindir}/*
 %{_sbindir}/*
 %{_libdir}/uml
 
