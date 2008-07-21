@@ -1,6 +1,6 @@
 %define name uml-utilities 
 %define version 20070815
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define	Summary	Tools to run and configure usermodes linux
 
@@ -49,7 +49,9 @@ may not change any aspects of the host side of the interface.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
+%if %mdvver < 200900
 install -D %{SOURCE1} %{buildroot}%{_sysconfdir}/udev/rules.d/90-tun.rules
+%endif
 
 install -D -m 755 %{SOURCE2} %buildroot/%_initrddir/umlswitch
 install -D -m 644 %{SOURCE3} %buildroot/%{_sysconfdir}/sysconfig/umlswitch
@@ -57,11 +59,13 @@ install -D -m 644 %{SOURCE3} %buildroot/%{_sysconfdir}/sysconfig/umlswitch
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%if %mdvver < 200900
 %pre -n tunctl
 %_pre_groupadd tun
 
 %postun -n tunctl
 %_postun_groupdel tun
+%endif
 
 %files
 %defattr(-,root,root)
@@ -75,4 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -n tunctl
 %defattr(-,root,root)
 %{_bindir}/tunctl
+%if %mdvver < 200900
 %config(noreplace) %{_sysconfdir}/udev/rules.d/90-tun.rules
+%endif
