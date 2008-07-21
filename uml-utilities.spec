@@ -75,4 +75,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -n tunctl
 %defattr(-,root,root)
 %{_bindir}/tunctl
-%config(noreplace) %{_sysconfdir}/udev/rules.d/90-tun.rules
+%config(noreplace) %{_sysconfdir}/udev/rules.d/45-tun.rules
