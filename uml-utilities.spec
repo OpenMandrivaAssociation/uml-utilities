@@ -1,6 +1,6 @@
 %define name uml-utilities 
 %define version 20070815
-%define release %mkrel 7
+%define release %mkrel 8
 
 %define	Summary	Tools to run and configure usermodes linux
 
