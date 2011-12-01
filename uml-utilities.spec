@@ -47,7 +47,7 @@ may not change any aspects of the host side of the interface.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 install -D %{SOURCE1} %{buildroot}%{_sysconfdir}/udev/rules.d/45-tun.rules
 
@@ -55,7 +55,7 @@ install -D -m 755 %{SOURCE2} %buildroot/%_initrddir/umlswitch
 install -D -m 644 %{SOURCE3} %buildroot/%{_sysconfdir}/sysconfig/umlswitch
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %pre -n tunctl
 %_pre_groupadd tun
