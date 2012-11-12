@@ -1,0 +1,13 @@
+Index: humfsify/Makefile
+===================================================================
+--- humfsify/Makefile
++++ humfsify/Makefile	2008-04-24 01:18:35.067321926 +0200
+@@ -4,7 +4,7 @@
+ 
+ install:
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -o 0755 $(BIN) $(DESTDIR)$(BIN_DIR)
++	install -m 0755 $(BIN) $(DESTDIR)$(BIN_DIR)
+ 
+ clean:
+ 	rm -f *~
