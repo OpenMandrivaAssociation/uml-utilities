@@ -1,5 +1,2 @@
 sources:
-  "tun.rules:"	0b7fa6a8bb5d9038ed1cf039e4b11a5fefe5e72d
-  "umlswitch.init:"	08e80522c6e9d08ed5361ca286a8982bf03962d4
-  "umlswitch.sysconfig:"	91610291d565a64bd41b90b7bf5f0bdf459c41fd
-  "uml_utilities_20070815.tar.bz2:"	4e10de8e0f5bf681fa295572009518b77fd8a1dd
+  "uml_utilities_20070815.tar.bz2": 4e10de8e0f5bf681fa295572009518b77fd8a1dd

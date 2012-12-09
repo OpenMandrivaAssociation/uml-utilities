@@ -1,0 +1,9 @@
+# Set this to link uml_switch to a tap devide
+# TAP=tap0
+
+# Specify an alternative socket
+# SOCKET=/tmp/uml.ctl
+
+# Others options
+# -hub: make it acting as a hub instead a switch
+OPTIONS=""

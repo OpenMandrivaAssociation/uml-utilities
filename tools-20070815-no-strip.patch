@@ -1,0 +1,93 @@
+diff -urN tools-20070815/jail/Makefile tools-20070815-patched/jail/Makefile
+--- tools-20070815/jail/Makefile	2006-02-28 05:51:46.000000000 +1000
++++ tools-20070815-patched/jail/Makefile	2012-10-22 20:31:55.609304690 +1100
+@@ -11,7 +11,7 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(SBIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(SBIN_DIR)
++	install $(BIN) $(DESTDIR)$(SBIN_DIR)
+ 
+ clean :
+ 	rm -rf *~ $(BIN) $(OBJS) cell[0-9]* core* tty_log_cell*
+diff -urN tools-20070815/jailtest/Makefile tools-20070815-patched/jailtest/Makefile
+--- tools-20070815/jailtest/Makefile	2006-02-28 05:52:53.000000000 +1000
++++ tools-20070815-patched/jailtest/Makefile	2012-10-22 20:32:03.073304277 +1100
+@@ -14,4 +14,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/mconsole/Makefile tools-20070815-patched/mconsole/Makefile
+--- tools-20070815/mconsole/Makefile	2006-02-28 06:03:01.000000000 +1000
++++ tools-20070815-patched/mconsole/Makefile	2012-10-22 20:32:12.508303210 +1100
+@@ -15,4 +15,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/moo/Makefile tools-20070815-patched/moo/Makefile
+--- tools-20070815/moo/Makefile	2006-02-28 06:08:49.000000000 +1000
++++ tools-20070815-patched/moo/Makefile	2012-10-22 20:32:18.474303245 +1100
+@@ -23,4 +23,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/port-helper/Makefile tools-20070815-patched/port-helper/Makefile
+--- tools-20070815/port-helper/Makefile	2006-02-28 06:18:40.000000000 +1000
++++ tools-20070815-patched/port-helper/Makefile	2012-10-22 20:32:27.278302802 +1100
+@@ -15,4 +15,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(LIB_DIR)
+-	install -s $(BIN) $(DESTDIR)$(LIB_DIR)
++	install $(BIN) $(DESTDIR)$(LIB_DIR)
+diff -urN tools-20070815/tunctl/Makefile tools-20070815-patched/tunctl/Makefile
+--- tools-20070815/tunctl/Makefile	2006-02-28 06:19:52.000000000 +1000
++++ tools-20070815-patched/tunctl/Makefile	2012-10-22 20:32:33.042302160 +1100
+@@ -14,4 +14,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/umlfs/Makefile tools-20070815-patched/umlfs/Makefile
+--- tools-20070815/umlfs/Makefile	2006-02-28 07:11:25.000000000 +1000
++++ tools-20070815-patched/umlfs/Makefile	2012-10-22 20:32:50.911300893 +1100
+@@ -16,4 +16,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/uml_net/Makefile tools-20070815-patched/uml_net/Makefile
+--- tools-20070815/uml_net/Makefile	2006-02-28 06:19:52.000000000 +1000
++++ tools-20070815-patched/uml_net/Makefile	2012-10-22 20:32:41.803301461 +1100
+@@ -22,4 +22,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s -m 04755 $(BIN) $(DESTDIR)$(BIN_DIR)
++	install -m 04755 $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/uml_switch/Makefile tools-20070815-patched/uml_switch/Makefile
+--- tools-20070815/uml_switch/Makefile	2006-02-28 06:20:26.000000000 +1000
++++ tools-20070815-patched/uml_switch/Makefile	2012-10-22 20:32:46.606301190 +1100
+@@ -21,4 +21,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
+diff -urN tools-20070815/watchdog/Makefile tools-20070815-patched/watchdog/Makefile
+--- tools-20070815/watchdog/Makefile	2006-02-28 06:55:34.000000000 +1000
++++ tools-20070815-patched/watchdog/Makefile	2012-10-22 20:32:59.829300942 +1100
+@@ -14,4 +14,4 @@
+ 
+ install : $(BIN)
+ 	install -d $(DESTDIR)$(BIN_DIR)
+-	install -s $(BIN) $(DESTDIR)$(BIN_DIR)
++	install $(BIN) $(DESTDIR)$(BIN_DIR)
