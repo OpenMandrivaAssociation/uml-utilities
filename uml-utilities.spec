@@ -11,7 +11,7 @@ Source2:	umlswitch.init
 Source3:	umlswitch.sysconfig
 Patch0:		uml-utilities-fix-install-usage.patch
 Patch1:		tools-20070815-no-strip.patch
-BuildRequires:	libreadline-devel
+BuildRequires:	readline-devel
 BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	fuse-devel
 Requires:	tunctl
