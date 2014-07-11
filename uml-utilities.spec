@@ -1,6 +1,6 @@
 Name:		uml-utilities
 Version:	20070815
-Release:	18
+Release:	19
 Summary:	Tools to run and configure usermodes linux
 License:	GPL
 Group:		Emulators
