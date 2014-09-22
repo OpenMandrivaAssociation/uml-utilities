@@ -1,14 +1,15 @@
 Summary:	Tools to run and configure usermodes linux
 Name:		uml-utilities
 Version:	20070815
-Release:	20
+Release:	22
 License:	GPLv2+
 Group:		Emulators
 Url:		http://user-mode-linux.sourceforge.net/
 Source0:	uml_utilities_%{version}.tar.bz2
 Source1:	tun.rules
-Source2:	umlswitch.init
+Source2:	umlswitch.service
 Source3:	umlswitch.sysconfig
+Source4:        umlswitch-wrapper.sh
 Patch0:		uml-utilities-fix-install-usage.patch
 Patch1:		tools-20070815-no-strip.patch
 BuildRequires:	readline-devel
@@ -23,11 +24,21 @@ This package contains tools that permit to you:
 
 %files
 %exclude %{_bindir}/tunctl
-%{_bindir}/*
-%{_sbindir}/*
+%{_bindir}/uml_switch
+%{_bindir}/umlswitch-wrapper.sh
 %{_libdir}/uml
-%{_initrddir}/umlswitch
+%attr(0644,root,root) %{_unitdir}/umlswitch.service
+%attr(0755,root,root) %{_libexecdir}/umlswitch-wrapper.sh
 %config %{_sysconfdir}/sysconfig/umlswitch
+
+%post
+%systemd_post umlswitch.service
+
+%preun
+%systemd_preun umlswitch.service
+
+%postun
+%systemd_postun_with_restart umlswitch.service
 
 #----------------------------------------------------------------------------
 
@@ -43,7 +54,18 @@ use by a particular user. That user may open and use the device, but
 may not change any aspects of the host side of the interface.
 
 %files -n tunctl
+%{_bindir}/humfsify
+%{_bindir}/jailtest
+%{_bindir}/uml_mconsole
+%{_bindir}/uml_mkcow
+%{_bindir}/uml_moo
+%{_bindir}/uml_mount
+%{_bindir}/uml_net
+%{_bindir}/uml_watchdog
 %{_bindir}/tunctl
+
+%{_sbindir}/jail_uml
+
 %config(noreplace) %{_sysconfdir}/udev/rules.d/45-tun.rules
 
 %pre -n tunctl
@@ -66,6 +88,9 @@ may not change any aspects of the host side of the interface.
 %makeinstall_std
 install -D %{SOURCE1} %{buildroot}%{_sysconfdir}/udev/rules.d/45-tun.rules
 
-install -D -m 755 %{SOURCE2} %{buildroot}%{_initrddir}/umlswitch
+install -m0644 -D %{SOURCE2} %{buildroot}%{_unitdir}/umlswitch.service
 install -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/umlswitch
+install -D -m 755 %{SOURCE4} %{buildroot}%{_bindir}/umlswitch-wrapper.sh
 
+sed "s:sysconfig:%{_sysconfdir}/sysconfig:" -i %{buildroot}%{_unitdir}/umlswitch.service
+sed "s:libexecdir:%{_libexecdir}:" -i %{buildroot}%{_unitdir}/%{name}.service

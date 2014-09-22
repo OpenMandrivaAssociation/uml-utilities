@@ -1,0 +1,15 @@
+[Unit]
+Description=A software switch to interconnect user-mode-linux virtual system
+After=syslog.target network.target
+Wants=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=-sysconfig/umlswitch
+ExecStart=libexecdir/umlswitch-wrapper.sh
+PIDFile=/var/run/htpdate/htpdate.pid
+Restart=on-abort
+SyslogIdentifier=htpdate
+
+[Install]
+WantedBy=multi-user.target
