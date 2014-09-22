@@ -28,7 +28,6 @@ This package contains tools that permit to you:
 %{_bindir}/umlswitch-wrapper.sh
 %{_libdir}/uml
 %attr(0644,root,root) %{_unitdir}/umlswitch.service
-%attr(0755,root,root) %{_libexecdir}/umlswitch-wrapper.sh
 %config %{_sysconfdir}/sysconfig/umlswitch
 
 %post
@@ -93,4 +92,4 @@ install -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/sysconfig/umlswitch
 install -D -m 755 %{SOURCE4} %{buildroot}%{_bindir}/umlswitch-wrapper.sh
 
 sed "s:sysconfig:%{_sysconfdir}/sysconfig:" -i %{buildroot}%{_unitdir}/umlswitch.service
-sed "s:libexecdir:%{_libexecdir}:" -i %{buildroot}%{_unitdir}/%{name}.service
+sed "s:libexecdir:%{_libexecdir}:" -i %{buildroot}%{_unitdir}/umlswitch.service

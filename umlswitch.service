@@ -6,7 +6,7 @@ Wants=network.target
 [Service]
 Type=simple
 EnvironmentFile=-sysconfig/umlswitch
-ExecStart=libexecdir/umlswitch-wrapper.sh
+ExecStart=/usr/bin/umlswitch-wrapper.sh
 PIDFile=/var/run/htpdate/htpdate.pid
 Restart=on-abort
 SyslogIdentifier=htpdate
