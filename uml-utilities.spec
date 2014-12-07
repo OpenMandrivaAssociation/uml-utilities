@@ -1,7 +1,7 @@
 Summary:	Tools to run and configure usermodes linux
 Name:		uml-utilities
 Version:	20070815
-Release:	22
+Release:	23
 License:	GPLv2+
 Group:		Emulators
 Url:		http://user-mode-linux.sourceforge.net/
