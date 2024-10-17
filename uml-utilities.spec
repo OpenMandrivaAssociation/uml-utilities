@@ -4,7 +4,7 @@ Version:	20070815
 Release:	25
 License:	GPLv2+
 Group:		Emulators
-Url:		http://user-mode-linux.sourceforge.net/
+Url:		https://user-mode-linux.sourceforge.net/
 Source0:	uml_utilities_%{version}.tar.bz2
 Source1:	tun.rules
 Source2:	umlswitch.service
